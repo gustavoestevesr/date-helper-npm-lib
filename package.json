@@ -2,15 +2,21 @@
   "name": "date-helper",
   "version": "1.0.0",
   "description": "Library to manipulate date and time",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "tsc -w",
+    "start": "npm run build && node dist/index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "date",
+    "time",
+    "typescript",
+    "date-helper"
+  ],
   "author": "Gustavo Esteves Rocha",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "typescript": "^5.9.3"
   }
