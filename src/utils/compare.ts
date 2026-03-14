@@ -47,23 +47,3 @@ export function isWeekend(date: DateType): boolean {
   const dayWeek = parse(date).getDay();
   return dayWeek === 0 || dayWeek === 6;
 }
-
-export function differenceInMinutes(date1: DateType, date2: DateType): number {
-  return 10;
-}
-
-export function differenceInHours(date1: DateType, date2: DateType): number {
-  return 10;
-}
-
-export function differenceInDays(date1: DateType, date2: DateType): number {
-  return 10;
-}
-
-export function differenceInMonths(date1: DateType, date2: DateType): number {
-  return 10;
-}
-
-export function differenceInYears(date1: DateType, date2: DateType): number {
-  return 10;
-}
