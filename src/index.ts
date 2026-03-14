@@ -1,7 +1,5 @@
-export function somar(a: number, b: number): number {
-  return a + b;
-}
-
-export function saudacao(nome: string): string {
-  return `Olá ${nome}!`;
-}
+export * from "./utils/calc";
+export * from "./utils/compare";
+export * from "./utils/format";
+export * from "./utils/interval";
+export * from "./utils/validate";
