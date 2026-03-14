@@ -1,4 +1,9 @@
-import type { DateType, PatternType } from "../types/date-pattern.type";
+import { DAYS_OF_WEEK_RECORD } from "../constants/constants";
+import type {
+  DateType,
+  DayWeekPatternType,
+  PatternType,
+} from "../types/date-pattern.type";
 
 export function parse(date: DateType): Date {
   if (date instanceof Date) {
@@ -31,9 +36,24 @@ export function format(
     HH: String(parsed.getHours()).padStart(2, "0"),
     mm: String(parsed.getMinutes()).padStart(2, "0"),
     ss: String(parsed.getSeconds()).padStart(2, "0"),
+
+    "E..EEE": dayOfWeek(parsed.getDay(), "E..EEE"),
+    EEEEE: dayOfWeek(parsed.getDay(), "EEEEE"),
+    EEEE: dayOfWeek(parsed.getDay(), "EEEE"),
+    EEE: dayOfWeek(parsed.getDay(), "EEE"),
   };
 
-  return pattern.replace(/dd|MM|yyyy|yy|HH|mm/g, (match) => tokens[match]!);
+  return pattern.replace(
+    /E\.\.EEE|EEEEE|EEEE|EEE|yyyy|yy|dd|MM|HH|mm|ss/g,
+    (match) => tokens[match]!,
+  );
+}
+
+export function dayOfWeek(
+  dayWeek: number,
+  pattern: DayWeekPatternType,
+): string {
+  return DAYS_OF_WEEK_RECORD[dayWeek]?.[pattern] ?? "";
 }
 
 export function getSeconds(date: DateType): number {
