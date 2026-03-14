@@ -37,40 +37,41 @@ export function format(
 }
 
 export function getSeconds(date: DateType): number {
-  const parsed = parse(date);
-  return parsed.getSeconds();
+  return parse(date).getSeconds();
 }
 
 export function getMinutes(date: DateType): number {
-  const parsed = parse(date);
-  return parsed.getMinutes();
+  return parse(date).getMinutes();
 }
 
 export function getHours(date: DateType): number {
-  const parsed = parse(date);
-  return parsed.getHours();
+  return parse(date).getHours();
 }
 
 export function startOfDay(date: DateType): Date {
-  const parsed = parse(date);
-  return new Date(parsed.setHours(0, 0, 0, 0));
+  return new Date(parse(date).setHours(0, 0, 0, 0));
 }
 
 export function endOfDay(date: DateType): Date {
-  const parsed = parse(date);
-  return new Date(parsed.setHours(23, 59, 59, 999));
+  return new Date(parse(date).setHours(23, 59, 59, 999));
 }
 
 export function startOfMonth(date: DateType): Date {
-  const parsed = parse(date);
-  return new Date(parsed.getFullYear(), parsed.getMonth(), 1, 0, 0, 0, 0);
+  return new Date(
+    parse(date).getFullYear(),
+    parse(date).getMonth(),
+    1,
+    0,
+    0,
+    0,
+    0,
+  );
 }
 
 export function endOfMonth(date: DateType): Date {
-  const parsed = parse(date);
   return new Date(
-    parsed.getFullYear(),
-    parsed.getMonth() + 1,
+    parse(date).getFullYear(),
+    parse(date).getMonth() + 1,
     0,
     23,
     59,
@@ -80,11 +81,9 @@ export function endOfMonth(date: DateType): Date {
 }
 
 export function startOfYear(date: DateType): Date {
-  const parsed = parse(date);
-  return new Date(parsed.getFullYear(), 0, 1, 0, 0, 0, 0);
+  return new Date(parse(date).getFullYear(), 0, 1, 0, 0, 0, 0);
 }
 
 export function endOfYear(date: DateType): Date {
-  const parsed = parse(date);
-  return new Date(parsed.getFullYear() + 1, 0, 0, 23, 59, 59, 999);
+  return new Date(parse(date).getFullYear() + 1, 0, 0, 23, 59, 59, 999);
 }
